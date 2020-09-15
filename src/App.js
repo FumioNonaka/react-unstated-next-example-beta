@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { createContext } from 'react';
+import { useCounter } from './useCounter';
+import CounterDisplay from './CounterDisplay';
 import './App.css';
 
+const initialCount = 0;
+export const CounterContext = createContext(initialCount);
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const counter = useCounter();
+	return (
+		<CounterContext.Provider value={ counter }>
+			<div className="App">
+				<CounterDisplay />
+			</div>
+		</CounterContext.Provider>
+	);
 }
 
 export default App;
