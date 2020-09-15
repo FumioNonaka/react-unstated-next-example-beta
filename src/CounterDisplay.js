@@ -1,8 +1,8 @@
-import React, {useContext} from "react";
-import { CounterContext } from './App';
+import React from "react";
+import { CounterContainer } from './useCounter';
 
 function CounterDisplay() {
-	const counter = useContext(CounterContext);
+  const counter = CounterContainer.useContainer();
 	return (
 		<div>
 			<button onClick={counter.decrement}>-</button>
