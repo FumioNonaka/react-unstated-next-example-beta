@@ -1,18 +1,15 @@
-import React, { createContext } from 'react';
-import { useCounter } from './useCounter';
+import React from 'react';
+import { CounterContainer } from './useCounter';
 import CounterDisplay from './CounterDisplay';
 import './App.css';
 
-const initialCount = 0;
-export const CounterContext = createContext(initialCount);
 function App() {
-	const counter = useCounter();
 	return (
-		<CounterContext.Provider value={ counter }>
+		<CounterContainer.Provider>
 			<div className="App">
 				<CounterDisplay />
 			</div>
-		</CounterContext.Provider>
+		</CounterContainer.Provider>
 	);
 }
 
